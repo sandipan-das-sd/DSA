@@ -107,7 +107,8 @@ else
     printf("Enter the value to insertt in to the stack:-");
     scanf("%d",&value);
     new_node->data=value;
-    new_node->next=head;
+    new_node->next=head; // Link the new node to the current top of the stack.
+    // Update the head to point to the new node, which is the new top of the stack.
     head=new_node;
     if(head=new_node){
         printf("Value inserted to the stack.");
