@@ -8,9 +8,9 @@ struct Node {
 };
 
 /* Function to reverse the linked list */
-static void reverse(struct Node** head_ref) {
+static void reverse(struct Node** head) {
     struct Node* prev = NULL;
-    struct Node* current = *head_ref;
+    struct Node* current = *head;
     struct Node* next = NULL;
     while (current != NULL) {
         // Store next
@@ -23,23 +23,23 @@ static void reverse(struct Node** head_ref) {
         prev = current;
         current = next;
     }
-    *head_ref = prev;
+    *head = prev;
 }
 
 /* Function to push a node at the end */
-void append(struct Node** head_ref, int new_data) {
+void append(struct Node** head, int new_data) {
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
     new_node->data = new_data;
     new_node->next = NULL;
 
     // If the list is empty, make the new node the head
-    if (*head_ref == NULL) {
-        *head_ref = new_node;
+    if (*head == NULL) {
+        *head = new_node;
         return;
     }
 
     // Traverse the list to find the last node
-    struct Node* temp = *head_ref;
+    struct Node* temp = *head;
     while (temp->next != NULL) {
         temp = temp->next;
     }
