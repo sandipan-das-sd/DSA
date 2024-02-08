@@ -123,11 +123,11 @@ void pop(){
     }
     else
     {
-    item=head->data;
+    // item=head->data;
     ptr=head;
     head=head->next;
     free(ptr);
-    printf("Node deleted from the stack");
+    printf("\nNode deleted from the stack\n");
 }
 }
 void display()
@@ -141,7 +141,7 @@ void display()
     while (temp!=NULL)
     {
         /* code */
-        printf("The stack element are:-\n");
+        printf("\nThe stack element are:-\n");
         printf("%d",temp->data);
         temp=temp->next;
     }
@@ -157,7 +157,7 @@ int main()
         
     
     
-    printf("**************Stack Menu*******************\n");
+    printf("\n**************Stack Menu*******************\n");
     printf("1.Push\n2.Pop\n3.Display\n4.Exit\n");
     printf("Enter your choice:-");
     scanf("%d",&choice);
