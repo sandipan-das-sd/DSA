@@ -3,6 +3,7 @@
 
 void insertion_dec_asc_sort(int arr[], int size) {
     int i, j, temp, key;
+    //as we have assign key to the second element of the arary for thgis we need to start the for  loop from 1 
     for (i = 1; i < size ; i++) {
        key=arr[i];
        j=i-1;
