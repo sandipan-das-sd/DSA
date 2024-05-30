@@ -2,13 +2,14 @@
 
 void fractionalKnapsack(int W[], int V[], int n, int M) {
     // Initialize an empty array SelectedItems
-    int SelectedItems[n];
+    float SelectedItems[n];
     int total = 0;
     
     // Calculate cost and sort in descending order
     float cost[n];
     for (int i = 0; i < n; i++) {
         cost[i] = (float)V[i] / W[i];
+        SelectedItems[i] = 0; // Initialize SelectedItems array
     }
     
     // Sort-Descending (cost)
@@ -32,20 +33,21 @@ void fractionalKnapsack(int W[], int V[], int n, int M) {
     
     // Initialize i
     int i = 0;
+    float totalValue = 0.0;
     
     // Loop
     while (i < n) {
         // If item can be fully added
         if (W[i] <= M) {
-            SelectedItems[i] = W[i];
+            SelectedItems[i] = 1.0; // Fully selected
             M -= W[i];
-            total += V[i];
+            totalValue += V[i];
         }
         // If item needs to be fractionally added
         else if (W[i] > M) {
             float fraction = (float)M / W[i];
-            SelectedItems[i] = fraction * W[i];
-            total += fraction * V[i];
+            SelectedItems[i] = fraction; // Partially selected
+            totalValue += fraction * V[i];
             break; // Exit loop
         }
         i++;
@@ -54,9 +56,11 @@ void fractionalKnapsack(int W[], int V[], int n, int M) {
     // Print SelectedItems
     printf("Selected Items: ");
     for (int j = 0; j < n; j++) {
-        printf("%d ", SelectedItems[j]);
+        if (SelectedItems[j] > 0) {
+            printf("(Weight: %d, Fraction: %.2f) ", W[j], SelectedItems[j]);
+        }
     }
-    printf("\nTotal Value: %d\n", total);
+    printf("\nTotal Value: %.2f\n", totalValue);
 }
 
 int main() {
