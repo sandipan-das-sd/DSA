@@ -10,7 +10,7 @@ void swap(int *a,int *b)
 int partition(int arr[],int lb,int ub)
 {
     int pivot=arr[lb];
-    int start=lb;
+    int start=lb;         
     int end=ub;
     while (start<end)
     {
