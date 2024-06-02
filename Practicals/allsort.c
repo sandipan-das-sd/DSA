@@ -13,7 +13,7 @@ void printArray(int array[], int size) {
 
 void insertionSort(int array[], int size) {
   for (int step = 1; step < size; step++) {
-    int key = array[step];
+    int key = array[step];  
     int j = step - 1;
 
     // Compare key with each element on the left of it until an element smaller than
@@ -24,9 +24,9 @@ void insertionSort(int array[], int size) {
       --j;
     }
     array[j + 1] = key;
-  }
+  }       
 }
-
+   
 // Driver code
 int main() {
   int data[] = {9, 5, 1, 4, 3};
